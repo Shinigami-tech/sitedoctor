@@ -1,0 +1,125 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>SiteDoctor · AI agent that repairs websites in a sandbox</title>
+<meta name="description" content="SiteDoctor examines any website in an isolated Vultr sandbox, writes a fix, applies it in a fresh sandbox and proves it works.">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<header class="top">
+  <a class="brand" href="/"><svg viewBox="0 0 40 24" aria-hidden="true"><path d="M1 13h9l3-8 5 15 4-11 3 4h14"/></svg>SiteDoctor</a>
+  <span class="badge">Vultr Agent Rush · Blast Radius Zero</span>
+  <span class="engine" id="engine"></span>
+</header>
+
+<main>
+  <section class="hero" id="hero">
+    <p class="kicker">AI agent · sandboxed browser · verified fixes</p>
+    <h1>Your website, <em>examined</em>, <em>treated</em> and <em>proven</em> healthy.</h1>
+    <p class="lead">SiteDoctor opens any site in a throwaway sandbox on Vultr, finds what's broken, writes a prescription, applies it in a fresh sandbox and re-examines the page. You only get fixes that were proven to work.</p>
+    <form id="form" class="scan">
+      <label class="sr" for="url">Website address</label>
+      <input id="url" type="url" required placeholder="https://your-website.com" autocomplete="url">
+      <button type="submit" id="go"><span>Examine</span></button>
+    </form>
+    <p class="hint">No site handy? <button type="button" class="link" id="demo">Try the demo patient</button> (a coffee shop site with a hidden malicious script).</p>
+    <ol class="how">
+      <li><b>01</b> Sandboxed audit<small>Desktop + phone, 6 health checks</small></li>
+      <li><b>02</b> AI prescription<small>Vultr Serverless Inference</small></li>
+      <li><b>03</b> Verified in a fresh sandbox<small>Before / after, measured</small></li>
+      <li><b>04</b> Drop-in fix<small>+ what needs a human</small></li>
+    </ol>
+  </section>
+
+  <section class="run" id="run" hidden>
+    <div class="runhead">
+      <div><p class="kicker">Patient</p><h2 id="patient"></h2></div>
+      <button class="ghost" id="again" type="button">New examination</button>
+    </div>
+
+    <div class="grid">
+      <article class="card timeline">
+        <h3>Agent</h3>
+        <ol id="steps">
+          <li data-step="plan"><i></i><div><b>Plan</b><span>Waiting</span></div></li>
+          <li data-step="audit"><i></i><div><b>Examine in sandbox</b><span>Waiting</span></div></li>
+          <li data-step="rx"><i></i><div><b>Prescribe</b><span>Waiting</span></div></li>
+          <li data-step="verify"><i></i><div><b>Verify in fresh sandbox</b><span>Waiting</span></div></li>
+        </ol>
+        <div class="console" id="console" aria-live="polite"></div>
+      </article>
+
+      <article class="card vitals">
+        <h3>Vitals</h3>
+        <div class="gauge" id="gauge">
+          <svg viewBox="0 0 120 120" aria-hidden="true"><circle cx="60" cy="60" r="52"/><circle class="arc" cx="60" cy="60" r="52"/></svg>
+          <div class="g-num"><b id="score">–</b><small id="scoreLabel">health score</small></div>
+        </div>
+        <div class="ecg" aria-hidden="true"><svg viewBox="0 0 300 40" preserveAspectRatio="none"><path id="ecgPath" d="M0 20 L300 20"/></svg></div>
+        <ul class="bars" id="bars"></ul>
+      </article>
+    </div>
+
+    <article class="card containment" id="containment">
+      <div class="c-head">
+        <h3>Containment</h3>
+        <span class="pill" id="blockedPill">0 actions blocked</span>
+      </div>
+      <div class="c-grid">
+        <ul class="policy" id="policy"></ul>
+        <ul class="blocked" id="blocked"><li class="empty">Nothing blocked yet.</li></ul>
+      </div>
+    </article>
+
+    <article class="card compare" id="compare" hidden>
+      <div class="c-head">
+        <h3>Before / after</h3>
+        <div class="seg" role="group" aria-label="Device">
+          <button type="button" aria-pressed="true" data-dev="mobile">Phone</button>
+          <button type="button" aria-pressed="false" data-dev="desktop">Desktop</button>
+        </div>
+      </div>
+      <div class="slider" id="slider">
+        <img id="imgAfter" alt="After the fix">
+        <div class="before-wrap" id="beforeWrap"><img id="imgBefore" alt="Before the fix"></div>
+        <span class="tag l">Before</span><span class="tag r">After</span>
+        <div class="handle" id="handle" role="slider" tabindex="0" aria-label="Compare before and after" aria-valuemin="0" aria-valuemax="100" aria-valuenow="50"></div>
+      </div>
+    </article>
+
+    <div class="grid two">
+      <article class="card" id="rxCard" hidden>
+        <div class="c-head"><h3>Prescription</h3><span class="pill soft" id="rxBy"></span></div>
+        <p class="diag" id="diag"></p>
+        <ul class="rx" id="rx"></ul>
+      </article>
+      <article class="card" id="findCard" hidden>
+        <h3>Findings</h3>
+        <ul class="findings" id="findings"></ul>
+      </article>
+    </div>
+
+    <article class="card result" id="result" hidden>
+      <div>
+        <p class="kicker">Discharge summary</p>
+        <h3 id="summary"></h3>
+        <ul class="human" id="human"></ul>
+      </div>
+      <div class="actions">
+        <a class="btn" id="dl" download="sitedoctor-fix.js">Download verified fix</a>
+        <button class="ghost" id="copy" type="button">Copy install line</button>
+      </div>
+    </article>
+  </section>
+</main>
+
+<footer class="foot">
+  <p>Built on <b>Vultr</b>: VM control layer · Serverless Inference · isolated Docker sandboxes with Playwright. Sandboxes hold no secrets and are destroyed after every task.</p>
+</footer>
+<script src="app.js"></script>
+</body>
+</html>
