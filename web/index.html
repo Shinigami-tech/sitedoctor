@@ -35,6 +35,31 @@
     </ol>
   </section>
 
+  <section class="lab" id="lab" aria-labelledby="labTitle">
+    <div class="lab-head">
+      <div>
+        <p class="kicker red">Red button · Attack Lab</p>
+        <h2 id="labTitle">Try to break SiteDoctor.</h2>
+        <p class="lead small">Five hostile pages that attack whatever opens them. Each one runs in a real throwaway sandbox on this server, live. Or bring your own nasty page.</p>
+      </div>
+      <button class="redbtn" id="runAll" type="button"><span>Launch all 5 attacks</span></button>
+    </div>
+    <ul class="attacks" id="attacks"></ul>
+    <form class="scan byo" id="byo">
+      <label class="sr" for="byoUrl">Your own hostile page</label>
+      <input id="byoUrl" type="url" required placeholder="https://your-evil-test-page.example">
+      <button type="submit"><span>Attack with my page</span></button>
+    </form>
+    <p class="scoreboard" id="scoreboard" hidden></p>
+  </section>
+
+  <section class="bench" id="bench" hidden aria-labelledby="benchTitle">
+    <p class="kicker">Real-world benchmark</p>
+    <h2 id="benchTitle"></h2>
+    <div class="bench-stats" id="benchStats"></div>
+    <details><summary>See every site</summary><table class="bench-table" id="benchTable"></table></details>
+  </section>
+
   <section class="run" id="run" hidden>
     <div class="runhead">
       <div><p class="kicker">Patient</p><h2 id="patient"></h2></div>

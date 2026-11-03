@@ -6,7 +6,7 @@ import { mkdirSync, readFileSync, writeFileSync } from "node:fs";
 import { join } from "node:path";
 import { randomBytes } from "node:crypto";
 import { runSandbox, CONTAINMENT_POLICY } from "./sandbox.mjs";
-import { diagnose, forModel } from "./score.mjs";
+import { diagnose, forModel, detectInjection } from "./score.mjs";
 import { plan, prescribe, summarise } from "./doctor.mjs";
 import { llmEnabled, modelName } from "./llm.mjs";
 
@@ -34,7 +34,54 @@ function emit(job, type, data) {
   job.bus.emit("ev", ev);
 }
 
-app.get("/api/info", (req, res) => res.json({ llm: llmEnabled(), model: modelName(), policy: CONTAINMENT_POLICY, demoUrl: `${PUBLIC_URL}/demo/patient.html` }));
+const ATTACKS = [
+  { id: "metadata", title: "Steal cloud credentials", page: "metadata.html", expect: "metadata", layer: "Network guard + iptables DROP on 169.254.169.254" },
+  { id: "exfil", title: "Exfiltrate visitor data", page: "exfil.html", expect: "exfiltration", layer: "Network guard: third-party POST / beacon / secret-in-URL" },
+  { id: "injection", title: "Prompt-inject the AI", page: "injection.html", expect: "injection", layer: "Hidden-text scanner + untrusted-data prompt; verdicts are code" },
+  { id: "internal", title: "Break into the server", page: "internal.html", expect: "private-network", layer: "Network guard: localhost, private ranges, Docker API" },
+  { id: "bomb", title: "Freeze the machine", page: "bomb.html", expect: "time-limit", layer: "CPU / RAM / PID caps + hard time limit" },
+];
+app.get("/api/info", (req, res) => res.json({ llm: llmEnabled(), model: modelName(), policy: CONTAINMENT_POLICY, demoUrl: `${PUBLIC_URL}/demo/patient.html`,
+  attacks: ATTACKS.map((a) => ({ ...a, url: `${PUBLIC_URL}/demo/attacks/${a.page}` })) }));
+
+app.get("/api/benchmark", (req, res) => {
+  for (const f of [join(DATA, "benchmark.json"), new URL("../bench/benchmark.json", import.meta.url).pathname]) {
+    try { return res.json(JSON.parse(readFileSync(f, "utf8"))); } catch {}
+  }
+  res.status(404).json({ error: "No benchmark yet" });
+});
+
+// Attack Lab: one quick audit-only sandbox run, returns what was contained.
+app.post("/api/probe", (req, res) => {
+  let url;
+  const preset = ATTACKS.find((a) => a.id === req.body?.attack);
+  try { url = new URL(preset ? `${PUBLIC_URL}/demo/attacks/${preset.page}` : String(req.body?.url || "").trim()); } catch { return res.status(400).json({ error: "Enter a full URL" }); }
+  if (!/^https?:$/.test(url.protocol)) return res.status(400).json({ error: "Only http(s) URLs" });
+  const id = randomBytes(5).toString("hex");
+  const job = { id, url: url.href, kind: "probe", attack: preset?.id, created: Date.now(), events: [], bus: new EventEmitter(), status: "queued" };
+  job.bus.setMaxListeners(50);
+  jobs.set(id, job); queue.push(job); pump();
+  res.json({ id });
+});
+
+async function probe(job) {
+  job.status = "running";
+  const dir = join(DATA, job.id); mkdirSync(dir, { recursive: true });
+  const host = new URL(job.url).hostname;
+  const allowHosts = ALLOW.includes(host) ? [host] : [];
+  emit(job, "step", { step: "audit", state: "active", title: "Opening the page in a throwaway sandbox" });
+  const a = await runSandbox({ url: job.url, mode: "audit", workDir: dir, allowHosts, timeLimit: 20, onLog: (line) => emit(job, "log", { step: "audit", line }) });
+  const blocked = a.report.containment || [];
+  const hidden = [...(a.report.desktop?.dom?.hiddenText || []), ...(a.report.mobile?.dom?.hiddenText || [])];
+  const injection = detectInjection(hidden);
+  const attacks = blocked.filter((c) => c.rule !== "tracker");
+  const contained = attacks.length > 0 || injection.length > 0;
+  emit(job, "containment", { step: "audit", events: blocked });
+  job.result = { url: job.url, attack: job.attack, blocked, injection, contained, sandboxDestroyed: true, seconds: a.seconds,
+    rules: [...new Set(attacks.map((c) => c.rule).concat(injection.length ? ["injection"] : []))] };
+  job.status = "done";
+  emit(job, "probe", job.result);
+}
 
 app.post("/api/scan", (req, res) => {
   let url;
@@ -69,7 +116,7 @@ app.get("/api/scan/:id", (req, res) => {
 function pump() {
   while (running < MAX_PARALLEL && queue.length) {
     const job = queue.shift(); running++;
-    work(job).catch((e) => emit(job, "error", { message: e.message })).finally(() => { running--; job.status = job.status === "running" ? "failed" : job.status; pump(); });
+    (job.kind === "probe" ? probe(job) : work(job)).catch((e) => emit(job, "error", { message: e.message })).finally(() => { running--; job.status = job.status === "running" ? "failed" : job.status; pump(); });
   }
 }
 

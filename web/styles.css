@@ -157,3 +157,36 @@ h1 em { font-style: normal; background: linear-gradient(90deg, var(--ok), var(--
   .engine { margin-left: 0; }
 }
 @media (prefers-reduced-motion: reduce) { *, *::before { animation: none !important; transition: none !important; } }
+
+/* Attack Lab */
+.lab { padding: 30px 0 50px; }
+.lab-head { display: flex; justify-content: space-between; align-items: end; gap: 20px; flex-wrap: wrap; margin-bottom: 18px; }
+.lab h2, .bench h2 { margin: 0 0 8px; font-size: clamp(1.6rem, 3vw, 2.2rem); letter-spacing: -.02em; }
+.lead.small { font-size: 1rem; margin: 0; max-width: 620px; }
+.kicker.red { color: var(--bad); }
+.redbtn { border: 0; border-radius: 14px; padding: 16px 24px; font-weight: 800; color: #fff; background: radial-gradient(circle at 30% 30%, #ff7a8f, #d81b40); box-shadow: 0 10px 30px rgba(255,84,112,.35), inset 0 -3px 0 rgba(0,0,0,.25); transition: transform .15s; }
+.redbtn:hover { transform: translateY(-1px); } .redbtn:active { transform: translateY(1px); } .redbtn:disabled { opacity: .6; cursor: wait; }
+.attacks { list-style: none; padding: 0; margin: 0 0 16px; display: grid; grid-template-columns: repeat(5, 1fr); gap: 12px; }
+.atk { display: flex; flex-direction: column; gap: 6px; padding: 16px; border-radius: 14px; border: 1px solid var(--line); background: var(--card); min-width: 0; transition: border-color .3s, box-shadow .3s; }
+.atk b { font: 600 .75rem var(--mono); color: var(--bad); }
+.atk h3 { margin: 0; font-size: 1rem; }
+.atk p { margin: 0; color: var(--muted); font-size: .82rem; flex: 1; }
+.atk-foot { display: grid; grid-template-columns: 1fr auto; gap: 8px; align-items: center; margin-top: 8px; }
+.atk .st { grid-column: 1 / -1; font: 600 .74rem var(--mono); color: var(--muted); }
+.atk .view { font: .72rem var(--mono); color: var(--muted); }
+.atk.running { border-color: rgba(255,200,87,.5); } .atk.running .st { color: #ffc857; }
+.atk.won { border-color: rgba(62,242,160,.5); box-shadow: 0 0 0 1px rgba(62,242,160,.2), 0 0 30px rgba(62,242,160,.08); } .atk.won .st { color: var(--ok); }
+.atk.clean .st { color: var(--accent); }
+.byo { max-width: none; margin: 0; }
+.scoreboard { font: 700 1rem var(--mono); color: var(--ok); margin: 14px 0 0; }
+/* benchmark */
+.bench { padding: 10px 0 60px; }
+.bench-stats { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; margin: 16px 0; }
+.bench-stats div { padding: 18px; border-radius: 14px; border: 1px solid var(--line); background: var(--card); }
+.bench-stats b { display: block; font: 800 1.8rem/1.1 var(--sans); color: var(--ok); }
+.bench-stats small { color: var(--muted); }
+.bench-table { width: 100%; border-collapse: collapse; margin-top: 10px; font-size: .88rem; }
+.bench-table th, .bench-table td { text-align: left; padding: 8px 10px; border-bottom: 1px solid var(--line); }
+.bench summary { cursor: pointer; color: var(--ok); font-weight: 600; }
+@media (max-width: 1000px) { .attacks { grid-template-columns: repeat(2, 1fr); } .bench-stats { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 560px) { .attacks, .bench-stats { grid-template-columns: 1fr; } }

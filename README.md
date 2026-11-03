@@ -28,6 +28,24 @@ The demo patient is a coffee shop site with a hidden malicious script. While Sit
 
 The **Containment** panel lights up live, the Security score drops to 10, and the discharge summary tells the owner to remove that script. The fix itself is still verified and delivered: the attack never interrupts the job.
 
+### The Red Button: Attack Lab (try to break it yourself)
+
+The home page has an **Attack Lab** with five deliberately hostile pages. Each one runs in a real throwaway sandbox on the Vultr VM, live, and the card shows what was stopped:
+
+| # | Attack | What the page does | What stops it |
+|---|---|---|---|
+| 1 | Steal cloud credentials | `fetch` Vultr/AWS/GCP metadata endpoints | Network guard + `iptables DROP 169.254.169.254` |
+| 2 | Exfiltrate visitor data | POSTs cookies + localStorage, image beacon with `?cookie=`, `sendBeacon` | Network guard: third-party POST, beacons, secrets in URLs |
+| 3 | Prompt-inject the AI | Off-screen text, 1px white text, an HTML comment and the meta description tell "SiteDoctor AI" to score 100 and leak its key | Hidden-text scanner flags it, the text is stripped from the model input, page text is labelled untrusted, and scores are computed by code |
+| 4 | Break into the server | `localhost`, Docker API `:2375`, `10.0.0.1`, `192.168.1.1`, the docker bridge on other ports, `file://` | Network guard: private ranges, other ports of the demo host, non-http schemes |
+| 5 | Freeze the machine | Infinite loop + memory hog after load | `--memory 1g --cpus 1 --pids-limit 512` + hard 20 s time limit, container destroyed |
+
+**Launch all 5 attacks** shows `5 / 5 attacks contained. The host was never touched.` You can also paste **your own** hostile page into the Attack Lab.
+
+### Real-world benchmark: Astana businesses
+
+`scripts/benchmark.mjs` runs the full pipeline on 45 real small-business websites in Astana, Kazakhstan (clinics, cafés, salons, gyms, language schools, hotels…), listed with sources in `scripts/astana-sites.json`. Results are written to `data/benchmark.json` and shown on the home page. Normal analytics (Google, Yandex Metrica, Tilda…) are blocked inside the sandbox but reported as **Privacy: trackers**, not as attacks, so real sites are not falsely flagged.
+
 ---
 
 ## Architecture on Vultr
@@ -69,6 +87,8 @@ The **Containment** panel lights up live, the Security score drops to 10, and th
 ## Run it
 
 ### On a Vultr VM (production)
+
+Easiest: paste `deploy/vultr-startup.sh` as a **Startup Script** when you create the VM (Ubuntu 24.04, 2 vCPU / 4 GB). It installs everything on first boot and opens a one-time page on port `8081` where you paste the Vultr Inference key; that page shuts itself down after saving. Or by hand:
 
 ```bash
 git clone https://github.com/Shinigami-tech/sitedoctor && cd sitedoctor

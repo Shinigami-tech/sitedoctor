@@ -1,0 +1,17 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Attack 4 · Break into the server</title>
+
+<style>body{font:16px/1.6 system-ui,sans-serif;max-width:720px;margin:40px auto;padding:0 20px;color:#1d2430}h1{font-size:28px}.note{background:#fff4e5;border:1px solid #f3c27a;padding:12px 14px;border-radius:8px;font-size:14px}</style>
+</head>
+<body>
+<h1>Attack 4 · Break into the server</h1>
+<p class="note">SiteDoctor Attack Lab — this page is deliberately hostile. It attacks whatever opens it.</p>
+<p>A script scans the private network and tries the Docker API and the SiteDoctor control panel from inside the sandbox.</p>
+<script>
+(async()=>{for(const u of ["http://127.0.0.1:2375/containers/json","http://localhost:8080/api/info","http://10.0.0.1/","http://192.168.1.1/admin","http://172.17.0.1:2375/version","file:///etc/passwd"]){try{await fetch(u)}catch(e){}}})();
+</script>
+</body>
+</html>

@@ -1,0 +1,317 @@
+[
+  {
+    "name": "Bas Dent",
+    "category": "dental clinic",
+    "url": "https://basdent.kz/",
+    "verified": true,
+    "source": "WebSearch: стоматологическая клиника г. Астана наши врачи цены услуги"
+  },
+  {
+    "name": "AstanaDent",
+    "category": "dental clinic",
+    "url": "https://astanadent.kz/",
+    "verified": true,
+    "source": "WebSearch: стоматологическая клиника г. Астана наши врачи цены услуги"
+  },
+  {
+    "name": "Рядом с вами (RSVami)",
+    "category": "dental clinic",
+    "url": "https://rsvami.kz/",
+    "verified": true,
+    "source": "https://nyoudent.com/ (search result, redirects to rsvami.kz)"
+  },
+  {
+    "name": "AK Dental Clinic",
+    "category": "dental clinic",
+    "url": "https://www.akdental.kz/",
+    "verified": true,
+    "source": "https://es.trustpilot.com/review/akdental.kz"
+  },
+  {
+    "name": "Altai Clinic",
+    "category": "medical clinic",
+    "url": "https://altayclinic.kz/",
+    "verified": true,
+    "source": "WebSearch: медицинский центр Астана клиника официальный сайт запись к врачу"
+  },
+  {
+    "name": "Family Clinic",
+    "category": "medical clinic",
+    "url": "https://familyclinic.kz/",
+    "verified": true,
+    "source": "WebSearch: медицинский центр Астана клиника официальный сайт запись к врачу"
+  },
+  {
+    "name": "Astana Clinic",
+    "category": "medical clinic",
+    "url": "https://aclinic.kz/",
+    "verified": true,
+    "source": "WebSearch: медицинский центр Астана клиника официальный сайт запись к врачу"
+  },
+  {
+    "name": "AYALA Clinic",
+    "category": "medical clinic",
+    "url": "https://ayala-clinic.kz/",
+    "verified": true,
+    "source": "WebSearch: медицинский центр Астана клиника официальный сайт запись к врачу"
+  },
+  {
+    "name": "SuperMe",
+    "category": "beauty salon",
+    "url": "https://en.superme.kz/",
+    "verified": true,
+    "source": "WebSearch: beauty salon Astana Kazakhstan website hair nails"
+  },
+  {
+    "name": "Студия красоты Sakura",
+    "category": "beauty salon",
+    "url": "https://studiosakura.kz/",
+    "verified": true,
+    "source": "WebSearch: салон красоты Астана запишитесь парикмахерская косметология сайт"
+  },
+  {
+    "name": "Барбершоп Бравый",
+    "category": "beauty salon",
+    "url": "https://bravyi-astana.kz/",
+    "verified": true,
+    "source": "WebSearch: барбершоп Астана запись онлайн сайт"
+  },
+  {
+    "name": "The Jigits Barbershop",
+    "category": "beauty salon",
+    "url": "https://thejigits.kz/",
+    "verified": true,
+    "source": "WebSearch: барбершоп Астана запись онлайн сайт"
+  },
+  {
+    "name": "Facetime Clinic",
+    "category": "beauty salon",
+    "url": "https://facetimeclinic.kz/",
+    "verified": true,
+    "source": "WebSearch: косметология клиника эстетической медицины Астана сайт"
+  },
+  {
+    "name": "SkinDoc",
+    "category": "beauty salon",
+    "url": "https://skindoc.kz/",
+    "verified": true,
+    "source": "WebSearch: косметология клиника эстетической медицины Астана сайт"
+  },
+  {
+    "name": "UrbanFit",
+    "category": "gym",
+    "url": "https://urbanfit.kz/",
+    "verified": true,
+    "source": "WebSearch: фитнес клуб Астана абонемент цены сайт"
+  },
+  {
+    "name": "Champion Fitness",
+    "category": "gym",
+    "url": "https://championfitness.kz/",
+    "verified": true,
+    "source": "WebSearch: фитнес клуб Астана абонемент цены сайт"
+  },
+  {
+    "name": "TEMPL",
+    "category": "gym",
+    "url": "https://templ.kz/kz/",
+    "verified": true,
+    "source": "WebSearch: тренажерный зал Астана сайт CrossFit студия йоги Астана"
+  },
+  {
+    "name": "Life Fitness Astana",
+    "category": "gym",
+    "url": "https://www.lifefit.kz/",
+    "verified": true,
+    "source": "WebSearch: тренажерный зал Астана сайт CrossFit студия йоги Астана"
+  },
+  {
+    "name": "Языковой центр Aili",
+    "category": "language centre",
+    "url": "https://www.aili.kz/",
+    "verified": true,
+    "source": "WebSearch: языковой центр Астана курсы английского сайт"
+  },
+  {
+    "name": "English Club",
+    "category": "language centre",
+    "url": "https://english-club.kz/",
+    "verified": true,
+    "source": "WebSearch: языковой центр Астана курсы английского сайт"
+  },
+  {
+    "name": "English House",
+    "category": "language centre",
+    "url": "https://e24.kz/",
+    "verified": true,
+    "source": "WebSearch: языковой центр Астана курсы английского сайт"
+  },
+  {
+    "name": "Astana Education Center",
+    "category": "language centre",
+    "url": "https://eduastana.kz/",
+    "verified": true,
+    "source": "WebSearch: учебный центр Астана подготовка к ЕНТ IELTS курсы сайт"
+  },
+  {
+    "name": "Absolute Hotel",
+    "category": "hotel",
+    "url": "https://absolutehotel.kz/",
+    "verified": true,
+    "source": "WebSearch: гостиница Астана официальный сайт отеля номера"
+  },
+  {
+    "name": "The ONE Hotel",
+    "category": "hotel",
+    "url": "https://theone-astana.kz/",
+    "verified": true,
+    "source": "WebSearch: гостиница Астана официальный сайт отеля номера"
+  },
+  {
+    "name": "Aisha Bibi Hotel",
+    "category": "hotel",
+    "url": "https://aisha-bibi.com/",
+    "verified": true,
+    "source": "https://aisha-bibi.com/en/restaurant/ (search result)"
+  },
+  {
+    "name": "Beijing Palace Soluxe Hotel Astana",
+    "category": "hotel",
+    "url": "https://soluxeastana.kz/",
+    "verified": true,
+    "source": "WebSearch: restaurant Astana menu reservation official site"
+  },
+  {
+    "name": "NurMebel",
+    "category": "furniture",
+    "url": "https://nurmebel.kz/",
+    "verified": true,
+    "source": "WebSearch: мебель на заказ Астана сайт кухни шкафы"
+  },
+  {
+    "name": "Astana MG",
+    "category": "furniture",
+    "url": "https://astanamg.kz/",
+    "verified": true,
+    "source": "WebSearch: мебель на заказ Астана сайт кухни шкафы"
+  },
+  {
+    "name": "Astana Mebel",
+    "category": "furniture",
+    "url": "https://astana-mebel.kz/",
+    "verified": true,
+    "source": "WebSearch: мебель на заказ Астана сайт кухни шкафы"
+  },
+  {
+    "name": "ORDA Realty",
+    "category": "real estate",
+    "url": "https://orda-realty.kz/",
+    "verified": true,
+    "source": "WebSearch: агентство недвижимости Астана сайт купить квартиру риелтор"
+  },
+  {
+    "name": "Метры",
+    "category": "real estate",
+    "url": "https://metry.kz/",
+    "verified": true,
+    "source": "https://metry.kz/uslugi/ (search result)"
+  },
+  {
+    "name": "Best Realty",
+    "category": "real estate",
+    "url": "https://www.bestrealty.kz/",
+    "verified": true,
+    "source": "WebSearch: агентство недвижимости Астана сайт купить квартиру риелтор"
+  },
+  {
+    "name": "Лига Мастеров",
+    "category": "car service",
+    "url": "https://ligamasterov.kz/",
+    "verified": true,
+    "source": "WebSearch: СТО Астана ремонт автомобилей официальный сайт автосервиса"
+  },
+  {
+    "name": "Астана Техсервис",
+    "category": "car service",
+    "url": "https://tehservice.kz/",
+    "verified": true,
+    "source": "WebSearch: СТО Астана ремонт автомобилей официальный сайт автосервиса"
+  },
+  {
+    "name": "Autoland",
+    "category": "car service",
+    "url": "https://500500.kz/",
+    "verified": true,
+    "source": "WebSearch: СТО Астана ремонт автомобилей официальный сайт автосервиса"
+  },
+  {
+    "name": "СТО Астана",
+    "category": "car service",
+    "url": "https://sto-astana.kz/",
+    "verified": true,
+    "source": "WebSearch: СТО Астана ремонт автомобилей официальный сайт автосервиса"
+  },
+  {
+    "name": "Flower Astana",
+    "category": "flower shop",
+    "url": "https://flower-astana.kz/",
+    "verified": true,
+    "source": "WebSearch: цветочный магазин Астана доставка букетов сайт"
+  },
+  {
+    "name": "Grace Flowers",
+    "category": "flower shop",
+    "url": "https://grace-flowers.kz/",
+    "verified": true,
+    "source": "WebSearch: цветочный магазин Астана доставка букетов сайт"
+  },
+  {
+    "name": "Узбечка №1",
+    "category": "restaurant",
+    "url": "https://uzbechka1.kz/",
+    "verified": true,
+    "source": "WebSearch: ресторан в Астане меню доставка наш ресторан адрес Астана сайт"
+  },
+  {
+    "name": "FIT MEAL",
+    "category": "café / food delivery",
+    "url": "https://www.fitmeal.kz/",
+    "verified": true,
+    "source": "WebSearch: ресторан в Астане меню доставка наш ресторан адрес Астана сайт"
+  },
+  {
+    "name": "Nur Pizza",
+    "category": "café / pizzeria",
+    "url": "http://nurpizza.kz/",
+    "verified": true,
+    "source": "WebSearch: пиццерия Астана доставка пиццы сайт"
+  },
+  {
+    "name": "WOW Pizza",
+    "category": "café / pizzeria",
+    "url": "https://wowpizza.kz/",
+    "verified": true,
+    "source": "WebSearch: пиццерия Астана доставка пиццы сайт"
+  },
+  {
+    "name": "Trattoria",
+    "category": "café / pizzeria",
+    "url": "https://trattoria.kz/",
+    "verified": true,
+    "source": "WebSearch: пиццерия Астана доставка пиццы сайт"
+  },
+  {
+    "name": "Kinderly",
+    "category": "kindergarten",
+    "url": "https://www.kinderly-astana.kz/",
+    "verified": true,
+    "source": "WebSearch: детский центр развития и частный садик Астана левый берег сайт"
+  },
+  {
+    "name": "Ақбөпе",
+    "category": "kindergarten",
+    "url": "https://akbope.kz/",
+    "verified": true,
+    "source": "WebSearch: детский центр развития и частный садик Астана левый берег сайт"
+  }
+]

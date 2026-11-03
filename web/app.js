@@ -2,17 +2,70 @@
 const $ = (s) => document.querySelector(s);
 const esc = (s) => String(s ?? "").replace(/[&<>"]/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
 const CATS = ["Accessibility", "Mobile", "Performance", "SEO", "Reliability", "Security"];
-const RULE_TITLE = { metadata: "Credential theft attempt blocked", "private-network": "Private network probe blocked", exfiltration: "Data exfiltration blocked", scheme: "Local file access blocked" };
+const RULE_TITLE = { metadata: "Credential theft attempt blocked", "private-network": "Private network probe blocked", exfiltration: "Data exfiltration blocked", scheme: "Local file access blocked", tracker: "Analytics tracker blocked", "time-limit": "Runaway page stopped at the time limit" };
 let info = null, es = null, state = {};
 
 fetch("/api/info").then((r) => r.json()).then((j) => {
   info = j;
   $("#engine").textContent = j.llm ? `Vultr Inference · ${j.model}` : "Rules mode (no inference key)";
+  renderAttacks();
   $("#policy").innerHTML = j.policy.map((p) => `<li>${esc(p.label)}<code>${esc(p.flag)}</code></li>`).join("");
 });
 
+/* ---------------- Attack Lab ---------------- */
+const RULE_SHORT = { metadata: "credential theft", "private-network": "server break-in", exfiltration: "data exfiltration", injection: "prompt injection", "time-limit": "resource bomb", scheme: "local file access" };
+function renderAttacks() {
+  $("#attacks").innerHTML = (info.attacks || []).map((a, i) => `<li class="atk" id="atk-${a.id}">
+    <b>0${i + 1}</b><h3>${esc(a.title)}</h3><p>${esc(a.layer)}</p>
+    <div class="atk-foot"><span class="st">Ready</span><button type="button" class="ghost" data-atk="${a.id}">Launch</button><a href="${esc(a.url)}" target="_blank" rel="noopener" class="view">view page</a></div></li>`).join("");
+  document.querySelectorAll("[data-atk]").forEach((b) => b.addEventListener("click", () => launch({ attack: b.dataset.atk })));
+}
+let labDone = {}, benchLoaded = false;
+async function launch(body) {
+  const key = body.attack || "byo";
+  const li = body.attack ? $("#atk-" + body.attack) : null;
+  if (li) { li.className = "atk running"; li.querySelector(".st").textContent = "Attacking…"; }
+  const r = await fetch("/api/probe", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify(body) });
+  const j = await r.json();
+  if (!r.ok) { alert(j.error); return; }
+  return new Promise((resolve) => {
+    const src = new EventSource(`/api/scan/${j.id}/events`);
+    src.onmessage = (m) => {
+      const ev = JSON.parse(m.data);
+      if (ev.type !== "probe" && ev.type !== "error") return;
+      src.close();
+      const ok = ev.type === "probe" && ev.contained;
+      labDone[key] = ok;
+      const what = ev.rules?.length ? ev.rules.map((x) => RULE_SHORT[x] || x).join(", ") : "nothing hostile";
+      const n = (ev.blocked || []).filter((x) => x.rule !== "tracker").length + (ev.injection || []).length;
+      const text = ev.type === "error" ? "Error: " + ev.message : ok ? `CONTAINED · ${what} · ${n} action(s) stopped · sandbox destroyed` : `Clean · nothing hostile found`;
+      if (li) { li.className = "atk " + (ok ? "won" : "clean"); li.querySelector(".st").textContent = text; }
+      else { $("#scoreboard").hidden = false; $("#scoreboard").textContent = "Your page: " + text; }
+      const presets = Object.keys(labDone).filter((k) => k !== "byo");
+      if (presets.length) { $("#scoreboard").hidden = false; if (body.attack) $("#scoreboard").textContent = `${presets.filter((k) => labDone[k]).length} / ${presets.length} attacks contained. The host was never touched.`; }
+      resolve(ok);
+    };
+  });
+}
+$("#runAll").addEventListener("click", async () => {
+  $("#runAll").disabled = true; labDone = {};
+  await Promise.all((info.attacks || []).map((a) => launch({ attack: a.id })));
+  $("#runAll").disabled = false;
+});
+$("#byo").addEventListener("submit", (e) => { e.preventDefault(); launch({ url: $("#byoUrl").value }); });
+
+/* ---------------- benchmark ---------------- */
+fetch("/api/benchmark").then((r) => (r.ok ? r.json() : null)).then((b) => {
+  if (!b) return;
+  benchLoaded = true; $("#bench").hidden = false;
+  $("#benchTitle").textContent = `${b.count} real Astana business websites, examined and treated`;
+  const st = [["Average health score", `${b.avgBefore} → ${b.avgAfter}`], ["Sites improved", `${b.improved} / ${b.count}`], ["Without a mobile viewport", `${b.noViewport}`], ["Analytics trackers blocked", `${b.trackers}`]];
+  $("#benchStats").innerHTML = st.map(([k, v]) => `<div><b>${esc(v)}</b><small>${esc(k)}</small></div>`).join("");
+  $("#benchTable").innerHTML = "<tr><th>Business</th><th>Type</th><th>Before</th><th>After</th></tr>" + b.sites.map((x) => `<tr><td>${esc(x.name)}</td><td>${esc(x.category)}</td><td>${x.before ?? "–"}</td><td>${x.after ?? esc(x.error || "–")}</td></tr>`).join("");
+});
+
 $("#demo").addEventListener("click", () => { $("#url").value = info?.demoUrl || location.origin + "/demo/patient.html"; $("#form").requestSubmit(); });
-$("#again").addEventListener("click", () => { es?.close(); $("#run").hidden = true; $("#hero").hidden = false; $("#url").focus(); });
+$("#again").addEventListener("click", () => { es?.close(); $("#run").hidden = true; $("#hero").hidden = false; $("#lab").hidden = false; $("#bench").hidden = !benchLoaded; $("#url").focus(); });
 
 $("#form").addEventListener("submit", async (e) => {
   e.preventDefault();
@@ -38,7 +91,7 @@ function reset(url) {
 
 function start(id, url) {
   reset(url);
-  $("#hero").hidden = true; $("#run").hidden = false; scrollTo({ top: 0, behavior: "smooth" });
+  $("#hero").hidden = true; $("#lab").hidden = true; $("#bench").hidden = true; $("#run").hidden = false; scrollTo({ top: 0, behavior: "smooth" });
   es = new EventSource(`/api/scan/${id}/events`);
   es.onmessage = (m) => handle(JSON.parse(m.data));
 }
