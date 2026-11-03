@@ -6,7 +6,7 @@ import { mkdirSync, readFileSync, writeFileSync } from "node:fs";
 import { join } from "node:path";
 import { randomBytes } from "node:crypto";
 import { runSandbox, CONTAINMENT_POLICY } from "./sandbox.mjs";
-import { diagnose, forModel, detectInjection } from "./score.mjs";
+import { diagnose, forModel, detectInjection, isKnownService } from "./score.mjs";
 import { plan, prescribe, summarise } from "./doctor.mjs";
 import { llmEnabled, modelName } from "./llm.mjs";
 
@@ -74,7 +74,7 @@ async function probe(job) {
   const blocked = a.report.containment || [];
   const hidden = [...(a.report.desktop?.dom?.hiddenText || []), ...(a.report.mobile?.dom?.hiddenText || [])];
   const injection = detectInjection(hidden);
-  const attacks = blocked.filter((c) => c.rule !== "tracker");
+  const attacks = blocked.filter((c) => c.rule !== "tracker" && !(c.rule === "exfiltration" && isKnownService(c.url)));
   const contained = attacks.length > 0 || injection.length > 0;
   emit(job, "containment", { step: "audit", events: blocked });
   job.result = { url: job.url, attack: job.attack, blocked, injection, contained, sandboxDestroyed: true, seconds: a.seconds,

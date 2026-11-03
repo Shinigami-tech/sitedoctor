@@ -44,7 +44,19 @@ The home page has an **Attack Lab** with five deliberately hostile pages. Each o
 
 ### Real-world benchmark: Astana businesses
 
-`scripts/benchmark.mjs` runs the full pipeline on 45 real small-business websites in Astana, Kazakhstan (clinics, cafés, salons, gyms, language schools, hotels…), listed with sources in `scripts/astana-sites.json`. Results are written to `data/benchmark.json` and shown on the home page. Normal analytics (Google, Yandex Metrica, Tilda…) are blocked inside the sandbox but reported as **Privacy: trackers**, not as attacks, so real sites are not falsely flagged.
+`scripts/benchmark.mjs` runs the full pipeline on 45 real small-business websites in Astana, Kazakhstan (clinics, cafés, salons, gyms, language schools, hotels…), listed with sources in `scripts/astana-sites.json`. Results are written to `bench/benchmark.json` and shown on the home page. Normal analytics (Google, Yandex Metrica, Tilda…) and well-known embedded services (YouTube, Google Maps, reCAPTCHA, Wix, booking widgets…) are still blocked inside the sandbox, but reported as **Privacy: third-party services**, not as attacks, so real sites are not falsely flagged.
+
+**Latest run (43 of 45 sites loaded):**
+
+| | Before | After SiteDoctor |
+|---|---|---|
+| Average health score | 75 | **82** |
+| Accessibility | 50 | 63 |
+| Mobile | 81 | 99 |
+| SEO | 92 | 100 |
+| Performance | 53 | 55 |
+
+41 of 43 sites improved with a verified fix (the other two had nothing safe to change). 113 third-party trackers and embeds were blocked in the sandbox and 0 real sites were falsely flagged as attackers.
 
 ---
 
@@ -114,7 +126,7 @@ Without an inference key SiteDoctor runs in **rules mode**, using a deterministi
 
 1. Click **Try the demo patient**.
 2. Watch **Containment**: three attacks are blocked within ~7 seconds.
-3. Watch **Vitals**: the score goes from **49 → 80** (Accessibility 49 → 100, Mobile 6 → 100, SEO 60 → 100).
+3. Watch **Vitals**: the score goes from **50 → 81** (Accessibility 49 → 100, Mobile 6 → 100, SEO 60 → 100).
 4. Drag the **Before / After** slider: the phone view goes from a zoomed-out desktop page to a readable mobile page.
 5. Click **Download verified fix**.
 

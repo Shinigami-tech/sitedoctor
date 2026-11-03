@@ -17,6 +17,13 @@ export function detectInjection(bits = []) {
   return [...new Set(hits)].slice(0, 5);
 }
 
+// Well-known third-party services real small-business sites embed (video, maps, captcha, site builders,
+// booking engines, chat widgets). Their requests are still blocked inside the sandbox, but they are
+// reported under Privacy, not as an attack, so honest sites aren't flagged as malicious.
+const KNOWN_SERVICES = /(^|\.)(youtube\.com|withgoogle\.com|youtube-nocookie\.com|ytimg\.com|googleapis\.com|gstatic\.com|google\.com|recaptcha\.net|wix\.com|wixapps\.net|parastorage\.com|tlintegration(-as)?\.com|hopenapi\.com|yandex\.(ru|kz|com)|yastatic\.net|firebaseio\.com|supabase\.co|flowsell\.me|reservi\.ru|openai\.com|vimeo\.com|tilda\.(ws|cc)|bitrix24\.(kz|ru)|whatsapp\.(com|net)|instagram\.com|cdninstagram\.com|2gis\.(ru|kz|com)|kaspi\.kz|cloudflareinsights\.com|sentry\.io|intercom\.io|crisp\.chat|tawk\.to|livechatinc\.com|wazzup24\.com|uiscom\.ru|calltouch\.ru|roistat\.com)$/i;
+export const isKnownService = (url) => isKnown(url);
+const isKnown = (url) => { try { return KNOWN_SERVICES.test(new URL(url).hostname); } catch { return false; } };
+
 const IMPACT = { critical: 15, serious: 10, moderate: 5, minor: 2 };
 const clamp = (n) => Math.max(0, Math.min(100, Math.round(n)));
 
@@ -64,9 +71,10 @@ export function diagnose(report) {
   // Security: anything the sandbox had to stop is a red flag on the real site
   let sec = 100;
   const byRule = {};
-  for (const c of report.containment || []) if (c.rule !== "tracker") (byRule[c.rule] ||= new Set()).add(c.url.split("?")[0]);
-  const trackers = new Set((report.containment || []).filter((c) => c.rule === "tracker").map((c) => new URL(c.url).hostname));
-  if (trackers.size) add("Privacy", "low", "trackers", `${trackers.size} analytics tracker(s) blocked`, [...trackers].slice(0, 4).join(", ") + " — normal analytics, blocked inside the sandbox so no visitor data leaves it.");
+  const benign = (c) => c.rule === "tracker" || (c.rule === "exfiltration" && isKnown(c.url));
+  for (const c of report.containment || []) if (!benign(c) && c.rule !== "time-limit") (byRule[c.rule] ||= new Set()).add(c.url.split("?")[0]);
+  const trackers = new Set((report.containment || []).filter(benign).map((c) => new URL(c.url).hostname));
+  if (trackers.size) add("Privacy", "low", "trackers", `${trackers.size} third-party tracker/service domain(s) blocked`, [...trackers].slice(0, 4).join(", ") + " — analytics, embeds or widgets; blocked inside the sandbox so no visitor data leaves it.");
   const injection = detectInjection([...(d.dom?.hiddenText || []), ...(m.dom?.hiddenText || [])]);
   if (injection.length) { sec -= 40; add("Security", "high", "sec:injection", "Hidden instructions aimed at AI agents (prompt injection)", `"${injection[0]}" — treated as untrusted data and never followed.`); }
   const RULE = { metadata: "Script tries to read cloud metadata (credential theft)", "private-network": "Script probes the private network / server internals", exfiltration: "Script sends visitor data to a third party", scheme: "Page tries to open local files" };

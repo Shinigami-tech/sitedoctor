@@ -1,0 +1,1346 @@
+{
+  "generatedAt": "2026-11-03T22:18:16.171Z",
+  "city": "Astana, Kazakhstan",
+  "count": 43,
+  "attempted": 45,
+  "avgBefore": 75,
+  "avgAfter": 82,
+  "improved": 41,
+  "noViewport": 2,
+  "trackers": 113,
+  "withSecurityFlags": 0,
+  "byCategory": {
+    "Accessibility": {
+      "before": 50,
+      "after": 63
+    },
+    "Mobile": {
+      "before": 81,
+      "after": 99
+    },
+    "Performance": {
+      "before": 53,
+      "after": 55
+    },
+    "SEO": {
+      "before": 92,
+      "after": 100
+    },
+    "Reliability": {
+      "before": 76,
+      "after": 75
+    },
+    "Security": {
+      "before": 100,
+      "after": 100
+    }
+  },
+  "sites": [
+    {
+      "name": "Языковой центр Aili",
+      "category": "language centre",
+      "url": "https://www.aili.kz/",
+      "verified": true,
+      "source": "WebSearch: языковой центр Астана курсы английского сайт",
+      "before": 62,
+      "after": 80,
+      "scoresBefore": {
+        "Accessibility": 35,
+        "Mobile": 50,
+        "Performance": 60,
+        "SEO": 85,
+        "Reliability": 40,
+        "Security": 100
+      },
+      "scoresAfter": {
+        "Accessibility": 89,
+        "Mobile": 75,
+        "Performance": 60,
+        "SEO": 100,
+        "Reliability": 58,
+        "Security": 100
+      },
+      "fixes": 5,
+      "noViewport": true,
+      "trackers": 0,
+      "injection": 0,
+      "attacks": 0
+    },
+    {
+      "name": "SkinDoc",
+      "category": "beauty salon",
+      "url": "https://skindoc.kz/",
+      "verified": true,
+      "source": "WebSearch: косметология клиника эстетической медицины Астана сайт",
+      "before": 64,
+      "after": 71,
+      "scoresBefore": {
+        "Accessibility": 40,
+        "Mobile": 94,
+        "Performance": 22,
+        "SEO": 85,
+        "Reliability": 40,
+        "Security": 100
+      },
+      "scoresAfter": {
+        "Accessibility": 74,
+        "Mobile": 100,
+        "Performance": 22,
+        "SEO": 100,
+        "Reliability": 28,
+        "Security": 100
+      },
+      "fixes": 4,
+      "noViewport": false,
+      "trackers": 3,
+      "injection": 0,
+      "attacks": 0
+    },
+    {
+      "name": "Best Realty",
+      "category": "real estate",
+      "url": "https://www.bestrealty.kz/",
+      "verified": true,
+      "source": "WebSearch: агентство недвижимости Астана сайт купить квартиру риелтор",
+      "before": 74,
+      "after": 89,
+      "scoresBefore": {
+        "Accessibility": 64,
+        "Mobile": 63,
+        "Performance": 45,
+        "SEO": 85,
+        "Reliability": 88,
+        "Security": 100
+      },
+      "scoresAfter": {
+        "Accessibility": 83,
+        "Mobile": 100,
+        "Performance": 62,
+        "SEO": 100,
+        "Reliability": 88,
+        "Security": 100
+      },
+      "fixes": 4,
+      "noViewport": false,
+      "trackers": 0,
+      "injection": 0,
+      "attacks": 0
+    },
+    {
+      "name": "Nur Pizza",
+      "category": "café / pizzeria",
+      "url": "http://nurpizza.kz/",
+      "verified": true,
+      "source": "WebSearch: пиццерия Астана доставка пиццы сайт",
+      "before": 80,
+      "after": 94,
+      "scoresBefore": {
+        "Accessibility": 78,
+        "Mobile": 65,
+        "Performance": 100,
+        "SEO": 40,
+        "Reliability": 94,
+        "Security": 100
+      },
+      "scoresAfter": {
+        "Accessibility": 89,
+        "Mobile": 100,
+        "Performance": 100,
+        "SEO": 80,
+        "Reliability": 94,
+        "Security": 100
+      },
+      "fixes": 4,
+      "noViewport": true,
+      "trackers": 0,
+      "injection": 0,
+      "attacks": 0
+    },
+    {
+      "name": "UrbanFit",
+      "category": "gym",
+      "url": "https://urbanfit.kz/",
+      "verified": true,
+      "source": "WebSearch: фитнес клуб Астана абонемент цены сайт",
+      "before": 65,
+      "after": 78,
+      "scoresBefore": {
+        "Accessibility": 60,
+        "Mobile": 81,
+        "Performance": 68,
+        "SEO": 75,
+        "Reliability": 4,
+        "Security": 100
+      },
+      "scoresAfter": {
+        "Accessibility": 88,
+        "Mobile": 100,
+        "Performance": 75,
+        "SEO": 100,
+        "Reliability": 4,
+        "Security": 100
+      },
+      "fixes": 4,
+      "noViewport": false,
+      "trackers": 5,
+      "injection": 0,
+      "attacks": 0
+    },
+    {
+      "name": "AstanaDent",
+      "category": "dental clinic",
+      "url": "https://astanadent.kz/",
+      "verified": true,
+      "source": "WebSearch: стоматологическая клиника г. Астана наши врачи цены услуги",
+      "before": 58,
+      "after": 70,
+      "scoresBefore": {
+        "Accessibility": 9,
+        "Mobile": 85,
+        "Performance": 30,
+        "SEO": 70,
+        "Reliability": 52,
+        "Security": 100
+      },
+      "scoresAfter": {
+        "Accessibility": 35,
+        "Mobile": 100,
+        "Performance": 30,
+        "SEO": 100,
+        "Reliability": 52,
+        "Security": 100
+      },
+      "fixes": 6,
+      "noViewport": false,
+      "trackers": 4,
+      "injection": 0,
+      "attacks": 0
+    },
+    {
+      "name": "Life Fitness Astana",
+      "category": "gym",
+      "url": "https://www.lifefit.kz/",
+      "verified": true,
+      "source": "WebSearch: тренажерный зал Астана сайт CrossFit студия йоги Астана",
+      "before": 84,
+      "after": 96,
+      "scoresBefore": {
+        "Accessibility": 78,
+        "Mobile": 81,
+        "Performance": 82,
+        "SEO": 75,
+        "Reliability": 88,
+        "Security": 100
+      },
+      "scoresAfter": {
+        "Accessibility": 100,
+        "Mobile": 100,
+        "Performance": 88,
+        "SEO": 100,
+        "Reliability": 88,
+        "Security": 100
+      },
+      "fixes": 5,
+      "noViewport": false,
+      "trackers": 5,
+      "injection": 0,
+      "attacks": 0
+    },
+    {
+      "name": "The ONE Hotel",
+      "category": "hotel",
+      "url": "https://theone-astana.kz/",
+      "verified": true,
+      "source": "WebSearch: гостиница Астана официальный сайт отеля номера",
+      "before": 64,
+      "after": 76,
+      "scoresBefore": {
+        "Accessibility": 39,
+        "Mobile": 84,
+        "Performance": 20,
+        "SEO": 70,
+        "Reliability": 70,
+        "Security": 100
+      },
+      "scoresAfter": {
+        "Accessibility": 68,
+        "Mobile": 100,
+        "Performance": 20,
+        "SEO": 100,
+        "Reliability": 70,
+        "Security": 100
+      },
+      "fixes": 6,
+      "noViewport": false,
+      "trackers": 4,
+      "injection": 0,
+      "attacks": 0
+    },
+    {
+      "name": "WOW Pizza",
+      "category": "café / pizzeria",
+      "url": "https://wowpizza.kz/",
+      "verified": true,
+      "source": "WebSearch: пиццерия Астана доставка пиццы сайт",
+      "before": 56,
+      "after": 67,
+      "scoresBefore": {
+        "Accessibility": 15,
+        "Mobile": 84,
+        "Performance": 20,
+        "SEO": 85,
+        "Reliability": 34,
+        "Security": 100
+      },
+      "scoresAfter": {
+        "Accessibility": 47,
+        "Mobile": 100,
+        "Performance": 20,
+        "SEO": 100,
+        "Reliability": 34,
+        "Security": 100
+      },
+      "fixes": 4,
+      "noViewport": false,
+      "trackers": 3,
+      "injection": 0,
+      "attacks": 0
+    },
+    {
+      "name": "TEMPL",
+      "category": "gym",
+      "url": "https://templ.kz/kz/",
+      "verified": true,
+      "source": "WebSearch: тренажерный зал Астана сайт CrossFit студия йоги Астана",
+      "before": 63,
+      "after": 73,
+      "scoresBefore": {
+        "Accessibility": 22,
+        "Mobile": 81,
+        "Performance": 20,
+        "SEO": 85,
+        "Reliability": 70,
+        "Security": 100
+      },
+      "scoresAfter": {
+        "Accessibility": 61,
+        "Mobile": 75,
+        "Performance": 20,
+        "SEO": 100,
+        "Reliability": 82,
+        "Security": 100
+      },
+      "fixes": 5,
+      "noViewport": false,
+      "trackers": 6,
+      "injection": 0,
+      "attacks": 0
+    },
+    {
+      "name": "Absolute Hotel",
+      "category": "hotel",
+      "url": "https://absolutehotel.kz/",
+      "verified": true,
+      "source": "WebSearch: гостиница Астана официальный сайт отеля номера",
+      "before": 64,
+      "after": 74,
+      "scoresBefore": {
+        "Accessibility": 56,
+        "Mobile": 74,
+        "Performance": 37,
+        "SEO": 85,
+        "Reliability": 34,
+        "Security": 100
+      },
+      "scoresAfter": {
+        "Accessibility": 75,
+        "Mobile": 100,
+        "Performance": 34,
+        "SEO": 100,
+        "Reliability": 34,
+        "Security": 100
+      },
+      "fixes": 4,
+      "noViewport": false,
+      "trackers": 4,
+      "injection": 0,
+      "attacks": 0
+    },
+    {
+      "name": "Рядом с вами (RSVami)",
+      "category": "dental clinic",
+      "url": "https://rsvami.kz/",
+      "verified": true,
+      "source": "https://nyoudent.com/ (search result, redirects to rsvami.kz)",
+      "before": 86,
+      "after": 95,
+      "scoresBefore": {
+        "Accessibility": 69,
+        "Mobile": 67,
+        "Performance": 92,
+        "SEO": 100,
+        "Reliability": 88,
+        "Security": 100
+      },
+      "scoresAfter": {
+        "Accessibility": 89,
+        "Mobile": 100,
+        "Performance": 95,
+        "SEO": 100,
+        "Reliability": 88,
+        "Security": 100
+      },
+      "fixes": 4,
+      "noViewport": false,
+      "trackers": 3,
+      "injection": 0,
+      "attacks": 0
+    },
+    {
+      "name": "English House",
+      "category": "language centre",
+      "url": "https://e24.kz/",
+      "verified": true,
+      "source": "WebSearch: языковой центр Астана курсы английского сайт",
+      "before": 82,
+      "after": 91,
+      "scoresBefore": {
+        "Accessibility": 25,
+        "Mobile": 84,
+        "Performance": 92,
+        "SEO": 90,
+        "Reliability": 100,
+        "Security": 100
+      },
+      "scoresAfter": {
+        "Accessibility": 56,
+        "Mobile": 100,
+        "Performance": 90,
+        "SEO": 100,
+        "Reliability": 100,
+        "Security": 100
+      },
+      "fixes": 3,
+      "noViewport": false,
+      "trackers": 3,
+      "injection": 0,
+      "attacks": 0
+    },
+    {
+      "name": "Барбершоп Бравый",
+      "category": "beauty salon",
+      "url": "https://bravyi-astana.kz/",
+      "verified": true,
+      "source": "WebSearch: барбершоп Астана запись онлайн сайт",
+      "before": 82,
+      "after": 90,
+      "scoresBefore": {
+        "Accessibility": 71,
+        "Mobile": 93,
+        "Performance": 60,
+        "SEO": 85,
+        "Reliability": 82,
+        "Security": 100
+      },
+      "scoresAfter": {
+        "Accessibility": 71,
+        "Mobile": 100,
+        "Performance": 84,
+        "SEO": 100,
+        "Reliability": 82,
+        "Security": 100
+      },
+      "fixes": 2,
+      "noViewport": false,
+      "trackers": 0,
+      "injection": 0,
+      "attacks": 0
+    },
+    {
+      "name": "Лига Мастеров",
+      "category": "car service",
+      "url": "https://ligamasterov.kz/",
+      "verified": true,
+      "source": "WebSearch: СТО Астана ремонт автомобилей официальный сайт автосервиса",
+      "before": 67,
+      "after": 75,
+      "scoresBefore": {
+        "Accessibility": 28,
+        "Mobile": 88,
+        "Performance": 30,
+        "SEO": 100,
+        "Reliability": 58,
+        "Security": 100
+      },
+      "scoresAfter": {
+        "Accessibility": 58,
+        "Mobile": 100,
+        "Performance": 30,
+        "SEO": 100,
+        "Reliability": 64,
+        "Security": 100
+      },
+      "fixes": 4,
+      "noViewport": false,
+      "trackers": 1,
+      "injection": 0,
+      "attacks": 0
+    },
+    {
+      "name": "Altai Clinic",
+      "category": "medical clinic",
+      "url": "https://altayclinic.kz/",
+      "verified": true,
+      "source": "WebSearch: медицинский центр Астана клиника официальный сайт запись к врачу",
+      "before": 71,
+      "after": 78,
+      "scoresBefore": {
+        "Accessibility": 31,
+        "Mobile": 80,
+        "Performance": 20,
+        "SEO": 100,
+        "Reliability": 94,
+        "Security": 100
+      },
+      "scoresAfter": {
+        "Accessibility": 53,
+        "Mobile": 100,
+        "Performance": 20,
+        "SEO": 100,
+        "Reliability": 94,
+        "Security": 100
+      },
+      "fixes": 2,
+      "noViewport": false,
+      "trackers": 3,
+      "injection": 0,
+      "attacks": 0
+    },
+    {
+      "name": "Студия красоты Sakura",
+      "category": "beauty salon",
+      "url": "https://studiosakura.kz/",
+      "verified": true,
+      "source": "WebSearch: салон красоты Астана запишитесь парикмахерская косметология сайт",
+      "before": 65,
+      "after": 72,
+      "scoresBefore": {
+        "Accessibility": 0,
+        "Mobile": 82,
+        "Performance": 39,
+        "SEO": 100,
+        "Reliability": 70,
+        "Security": 100
+      },
+      "scoresAfter": {
+        "Accessibility": 14,
+        "Mobile": 100,
+        "Performance": 39,
+        "SEO": 100,
+        "Reliability": 76,
+        "Security": 100
+      },
+      "fixes": 3,
+      "noViewport": false,
+      "trackers": 6,
+      "injection": 0,
+      "attacks": 0
+    },
+    {
+      "name": "Astana Education Center",
+      "category": "language centre",
+      "url": "https://eduastana.kz/",
+      "verified": true,
+      "source": "WebSearch: учебный центр Астана подготовка к ЕНТ IELTS курсы сайт",
+      "before": 80,
+      "after": 87,
+      "scoresBefore": {
+        "Accessibility": 67,
+        "Mobile": 91,
+        "Performance": 60,
+        "SEO": 85,
+        "Reliability": 76,
+        "Security": 100
+      },
+      "scoresAfter": {
+        "Accessibility": 84,
+        "Mobile": 100,
+        "Performance": 60,
+        "SEO": 100,
+        "Reliability": 76,
+        "Security": 100
+      },
+      "fixes": 4,
+      "noViewport": false,
+      "trackers": 0,
+      "injection": 0,
+      "attacks": 0
+    },
+    {
+      "name": "Астана Техсервис",
+      "category": "car service",
+      "url": "https://tehservice.kz/",
+      "verified": true,
+      "source": "WebSearch: СТО Астана ремонт автомобилей официальный сайт автосервиса",
+      "before": 75,
+      "after": 82,
+      "scoresBefore": {
+        "Accessibility": 32,
+        "Mobile": 75,
+        "Performance": 52,
+        "SEO": 100,
+        "Reliability": 88,
+        "Security": 100
+      },
+      "scoresAfter": {
+        "Accessibility": 44,
+        "Mobile": 100,
+        "Performance": 52,
+        "SEO": 100,
+        "Reliability": 94,
+        "Security": 100
+      },
+      "fixes": 3,
+      "noViewport": false,
+      "trackers": 3,
+      "injection": 0,
+      "attacks": 0
+    },
+    {
+      "name": "FIT MEAL",
+      "category": "café / food delivery",
+      "url": "https://www.fitmeal.kz/",
+      "verified": true,
+      "source": "WebSearch: ресторан в Астане меню доставка наш ресторан адрес Астана сайт",
+      "before": 83,
+      "after": 90,
+      "scoresBefore": {
+        "Accessibility": 75,
+        "Mobile": 89,
+        "Performance": 45,
+        "SEO": 100,
+        "Reliability": 88,
+        "Security": 100
+      },
+      "scoresAfter": {
+        "Accessibility": 75,
+        "Mobile": 100,
+        "Performance": 77,
+        "SEO": 100,
+        "Reliability": 88,
+        "Security": 100
+      },
+      "fixes": 3,
+      "noViewport": false,
+      "trackers": 1,
+      "injection": 0,
+      "attacks": 0
+    },
+    {
+      "name": "Bas Dent",
+      "category": "dental clinic",
+      "url": "https://basdent.kz/",
+      "verified": true,
+      "source": "WebSearch: стоматологическая клиника г. Астана наши врачи цены услуги",
+      "before": 69,
+      "after": 75,
+      "scoresBefore": {
+        "Accessibility": 0,
+        "Mobile": 58,
+        "Performance": 58,
+        "SEO": 100,
+        "Reliability": 100,
+        "Security": 100
+      },
+      "scoresAfter": {
+        "Accessibility": 0,
+        "Mobile": 100,
+        "Performance": 50,
+        "SEO": 100,
+        "Reliability": 100,
+        "Security": 100
+      },
+      "fixes": 3,
+      "noViewport": false,
+      "trackers": 8,
+      "injection": 0,
+      "attacks": 0
+    },
+    {
+      "name": "AK Dental Clinic",
+      "category": "dental clinic",
+      "url": "https://www.akdental.kz/",
+      "verified": true,
+      "source": "https://es.trustpilot.com/review/akdental.kz",
+      "before": 73,
+      "after": 79,
+      "scoresBefore": {
+        "Accessibility": 46,
+        "Mobile": 68,
+        "Performance": 42,
+        "SEO": 100,
+        "Reliability": 82,
+        "Security": 100
+      },
+      "scoresAfter": {
+        "Accessibility": 51,
+        "Mobile": 100,
+        "Performance": 42,
+        "SEO": 100,
+        "Reliability": 82,
+        "Security": 100
+      },
+      "fixes": 3,
+      "noViewport": false,
+      "trackers": 6,
+      "injection": 0,
+      "attacks": 0
+    },
+    {
+      "name": "Family Clinic",
+      "category": "medical clinic",
+      "url": "https://familyclinic.kz/",
+      "verified": true,
+      "source": "WebSearch: медицинский центр Астана клиника официальный сайт запись к врачу",
+      "before": 60,
+      "after": 66,
+      "scoresBefore": {
+        "Accessibility": 3,
+        "Mobile": 92,
+        "Performance": 20,
+        "SEO": 85,
+        "Reliability": 58,
+        "Security": 100
+      },
+      "scoresAfter": {
+        "Accessibility": 17,
+        "Mobile": 100,
+        "Performance": 20,
+        "SEO": 100,
+        "Reliability": 58,
+        "Security": 100
+      },
+      "fixes": 3,
+      "noViewport": false,
+      "trackers": 3,
+      "injection": 0,
+      "attacks": 0
+    },
+    {
+      "name": "SuperMe",
+      "category": "beauty salon",
+      "url": "https://en.superme.kz/",
+      "verified": true,
+      "source": "WebSearch: beauty salon Astana Kazakhstan website hair nails",
+      "before": 86,
+      "after": 92,
+      "scoresBefore": {
+        "Accessibility": 69,
+        "Mobile": 87,
+        "Performance": 60,
+        "SEO": 100,
+        "Reliability": 100,
+        "Security": 100
+      },
+      "scoresAfter": {
+        "Accessibility": 69,
+        "Mobile": 100,
+        "Performance": 81,
+        "SEO": 100,
+        "Reliability": 100,
+        "Security": 100
+      },
+      "fixes": 3,
+      "noViewport": false,
+      "trackers": 3,
+      "injection": 0,
+      "attacks": 0
+    },
+    {
+      "name": "Grace Flowers",
+      "category": "flower shop",
+      "url": "https://grace-flowers.kz/",
+      "verified": true,
+      "source": "WebSearch: цветочный магазин Астана доставка букетов сайт",
+      "before": 76,
+      "after": 82,
+      "scoresBefore": {
+        "Accessibility": 17,
+        "Mobile": 81,
+        "Performance": 59,
+        "SEO": 100,
+        "Reliability": 100,
+        "Security": 100
+      },
+      "scoresAfter": {
+        "Accessibility": 33,
+        "Mobile": 100,
+        "Performance": 59,
+        "SEO": 100,
+        "Reliability": 100,
+        "Security": 100
+      },
+      "fixes": 4,
+      "noViewport": false,
+      "trackers": 2,
+      "injection": 0,
+      "attacks": 0
+    },
+    {
+      "name": "Aisha Bibi Hotel",
+      "category": "hotel",
+      "url": "https://aisha-bibi.com/",
+      "verified": true,
+      "source": "https://aisha-bibi.com/en/restaurant/ (search result)",
+      "before": 91,
+      "after": 96,
+      "scoresBefore": {
+        "Accessibility": 100,
+        "Mobile": 84,
+        "Performance": 60,
+        "SEO": 100,
+        "Reliability": 100,
+        "Security": 100
+      },
+      "scoresAfter": {
+        "Accessibility": 100,
+        "Mobile": 100,
+        "Performance": 78,
+        "SEO": 100,
+        "Reliability": 100,
+        "Security": 100
+      },
+      "fixes": 2,
+      "noViewport": false,
+      "trackers": 3,
+      "injection": 0,
+      "attacks": 0
+    },
+    {
+      "name": "Astana MG",
+      "category": "furniture",
+      "url": "https://astanamg.kz/",
+      "verified": true,
+      "source": "WebSearch: мебель на заказ Астана сайт кухни шкафы",
+      "before": 79,
+      "after": 84,
+      "scoresBefore": {
+        "Accessibility": 57,
+        "Mobile": 91,
+        "Performance": 40,
+        "SEO": 100,
+        "Reliability": 88,
+        "Security": 100
+      },
+      "scoresAfter": {
+        "Accessibility": 77,
+        "Mobile": 100,
+        "Performance": 40,
+        "SEO": 100,
+        "Reliability": 88,
+        "Security": 100
+      },
+      "fixes": 3,
+      "noViewport": false,
+      "trackers": 3,
+      "injection": 0,
+      "attacks": 0
+    },
+    {
+      "name": "ORDA Realty",
+      "category": "real estate",
+      "url": "https://orda-realty.kz/",
+      "verified": true,
+      "source": "WebSearch: агентство недвижимости Астана сайт купить квартиру риелтор",
+      "before": 67,
+      "after": 72,
+      "scoresBefore": {
+        "Accessibility": 53,
+        "Mobile": 83,
+        "Performance": 83,
+        "SEO": 85,
+        "Reliability": 0,
+        "Security": 100
+      },
+      "scoresAfter": {
+        "Accessibility": 42,
+        "Mobile": 97,
+        "Performance": 92,
+        "SEO": 100,
+        "Reliability": 0,
+        "Security": 100
+      },
+      "fixes": 4,
+      "noViewport": false,
+      "trackers": 1,
+      "injection": 0,
+      "attacks": 0
+    },
+    {
+      "name": "Trattoria",
+      "category": "café / pizzeria",
+      "url": "https://trattoria.kz/",
+      "verified": true,
+      "source": "WebSearch: пиццерия Астана доставка пиццы сайт",
+      "before": 78,
+      "after": 83,
+      "scoresBefore": {
+        "Accessibility": 60,
+        "Mobile": 86,
+        "Performance": 30,
+        "SEO": 100,
+        "Reliability": 94,
+        "Security": 100
+      },
+      "scoresAfter": {
+        "Accessibility": 74,
+        "Mobile": 100,
+        "Performance": 30,
+        "SEO": 100,
+        "Reliability": 94,
+        "Security": 100
+      },
+      "fixes": 2,
+      "noViewport": false,
+      "trackers": 5,
+      "injection": 0,
+      "attacks": 0
+    },
+    {
+      "name": "AYALA Clinic",
+      "category": "medical clinic",
+      "url": "https://ayala-clinic.kz/",
+      "verified": true,
+      "source": "WebSearch: медицинский центр Астана клиника официальный сайт запись к врачу",
+      "before": 74,
+      "after": 78,
+      "scoresBefore": {
+        "Accessibility": 52,
+        "Mobile": 87,
+        "Performance": 50,
+        "SEO": 100,
+        "Reliability": 52,
+        "Security": 100
+      },
+      "scoresAfter": {
+        "Accessibility": 72,
+        "Mobile": 100,
+        "Performance": 50,
+        "SEO": 100,
+        "Reliability": 46,
+        "Security": 100
+      },
+      "fixes": 4,
+      "noViewport": false,
+      "trackers": 1,
+      "injection": 0,
+      "attacks": 0
+    },
+    {
+      "name": "English Club",
+      "category": "language centre",
+      "url": "https://english-club.kz/",
+      "verified": true,
+      "source": "WebSearch: языковой центр Астана курсы английского сайт",
+      "before": 80,
+      "after": 84,
+      "scoresBefore": {
+        "Accessibility": 80,
+        "Mobile": 84,
+        "Performance": 38,
+        "SEO": 100,
+        "Reliability": 76,
+        "Security": 100
+      },
+      "scoresAfter": {
+        "Accessibility": 87,
+        "Mobile": 100,
+        "Performance": 38,
+        "SEO": 100,
+        "Reliability": 76,
+        "Security": 100
+      },
+      "fixes": 3,
+      "noViewport": false,
+      "trackers": 2,
+      "injection": 0,
+      "attacks": 0
+    },
+    {
+      "name": "Метры",
+      "category": "real estate",
+      "url": "https://metry.kz/",
+      "verified": true,
+      "source": "https://metry.kz/uslugi/ (search result)",
+      "before": 78,
+      "after": 82,
+      "scoresBefore": {
+        "Accessibility": 47,
+        "Mobile": 84,
+        "Performance": 35,
+        "SEO": 100,
+        "Reliability": 100,
+        "Security": 100
+      },
+      "scoresAfter": {
+        "Accessibility": 58,
+        "Mobile": 100,
+        "Performance": 35,
+        "SEO": 100,
+        "Reliability": 100,
+        "Security": 100
+      },
+      "fixes": 2,
+      "noViewport": false,
+      "trackers": 4,
+      "injection": 0,
+      "attacks": 0
+    },
+    {
+      "name": "Ақбөпе",
+      "category": "kindergarten",
+      "url": "https://akbope.kz/",
+      "verified": true,
+      "source": "WebSearch: детский центр развития и частный садик Астана левый берег сайт",
+      "before": 91,
+      "after": 95,
+      "scoresBefore": {
+        "Accessibility": 88,
+        "Mobile": 81,
+        "Performance": 87,
+        "SEO": 100,
+        "Reliability": 88,
+        "Security": 100
+      },
+      "scoresAfter": {
+        "Accessibility": 88,
+        "Mobile": 100,
+        "Performance": 96,
+        "SEO": 100,
+        "Reliability": 88,
+        "Security": 100
+      },
+      "fixes": 3,
+      "noViewport": false,
+      "trackers": 0,
+      "injection": 0,
+      "attacks": 0
+    },
+    {
+      "name": "Beijing Palace Soluxe Hotel Astana",
+      "category": "hotel",
+      "url": "https://soluxeastana.kz/",
+      "verified": true,
+      "source": "WebSearch: restaurant Astana menu reservation official site",
+      "before": 74,
+      "after": 77,
+      "scoresBefore": {
+        "Accessibility": 0,
+        "Mobile": 88,
+        "Performance": 60,
+        "SEO": 100,
+        "Reliability": 94,
+        "Security": 100
+      },
+      "scoresAfter": {
+        "Accessibility": 0,
+        "Mobile": 100,
+        "Performance": 67,
+        "SEO": 100,
+        "Reliability": 94,
+        "Security": 100
+      },
+      "fixes": 3,
+      "noViewport": false,
+      "trackers": 3,
+      "injection": 0,
+      "attacks": 0
+    },
+    {
+      "name": "Autoland",
+      "category": "car service",
+      "url": "https://500500.kz/",
+      "verified": true,
+      "source": "WebSearch: СТО Астана ремонт автомобилей официальный сайт автосервиса",
+      "before": 70,
+      "after": 73,
+      "scoresBefore": {
+        "Accessibility": 43,
+        "Mobile": 89,
+        "Performance": 23,
+        "SEO": 90,
+        "Reliability": 76,
+        "Security": 100
+      },
+      "scoresAfter": {
+        "Accessibility": 41,
+        "Mobile": 100,
+        "Performance": 23,
+        "SEO": 100,
+        "Reliability": 76,
+        "Security": 100
+      },
+      "fixes": 3,
+      "noViewport": false,
+      "trackers": 3,
+      "injection": 0,
+      "attacks": 0
+    },
+    {
+      "name": "Узбечка №1",
+      "category": "restaurant",
+      "url": "https://uzbechka1.kz/",
+      "verified": true,
+      "source": "WebSearch: ресторан в Астане меню доставка наш ресторан адрес Астана сайт",
+      "before": 83,
+      "after": 86,
+      "scoresBefore": {
+        "Accessibility": 87,
+        "Mobile": 83,
+        "Performance": 30,
+        "SEO": 100,
+        "Reliability": 100,
+        "Security": 100
+      },
+      "scoresAfter": {
+        "Accessibility": 87,
+        "Mobile": 100,
+        "Performance": 30,
+        "SEO": 100,
+        "Reliability": 100,
+        "Security": 100
+      },
+      "fixes": 3,
+      "noViewport": false,
+      "trackers": 1,
+      "injection": 0,
+      "attacks": 0
+    },
+    {
+      "name": "Facetime Clinic",
+      "category": "beauty salon",
+      "url": "https://facetimeclinic.kz/",
+      "verified": true,
+      "source": "WebSearch: косметология клиника эстетической медицины Астана сайт",
+      "before": 90,
+      "after": 92,
+      "scoresBefore": {
+        "Accessibility": 80,
+        "Mobile": 63,
+        "Performance": 95,
+        "SEO": 100,
+        "Reliability": 100,
+        "Security": 100
+      },
+      "scoresAfter": {
+        "Accessibility": 80,
+        "Mobile": 100,
+        "Performance": 74,
+        "SEO": 100,
+        "Reliability": 100,
+        "Security": 100
+      },
+      "fixes": 4,
+      "noViewport": false,
+      "trackers": 0,
+      "injection": 0,
+      "attacks": 0
+    },
+    {
+      "name": "Astana Clinic",
+      "category": "medical clinic",
+      "url": "https://aclinic.kz/",
+      "verified": true,
+      "source": "WebSearch: медицинский центр Астана клиника официальный сайт запись к врачу",
+      "before": 91,
+      "after": 92,
+      "scoresBefore": {
+        "Accessibility": 80,
+        "Mobile": 89,
+        "Performance": 89,
+        "SEO": 100,
+        "Reliability": 88,
+        "Security": 100
+      },
+      "scoresAfter": {
+        "Accessibility": 80,
+        "Mobile": 100,
+        "Performance": 83,
+        "SEO": 100,
+        "Reliability": 88,
+        "Security": 100
+      },
+      "fixes": 2,
+      "noViewport": false,
+      "trackers": 0,
+      "injection": 0,
+      "attacks": 0
+    },
+    {
+      "name": "The Jigits Barbershop",
+      "category": "beauty salon",
+      "url": "https://thejigits.kz/",
+      "verified": true,
+      "source": "WebSearch: барбершоп Астана запись онлайн сайт",
+      "before": 75,
+      "after": 76,
+      "scoresBefore": {
+        "Accessibility": 57,
+        "Mobile": 84,
+        "Performance": 78,
+        "SEO": 100,
+        "Reliability": 28,
+        "Security": 100
+      },
+      "scoresAfter": {
+        "Accessibility": 69,
+        "Mobile": 100,
+        "Performance": 60,
+        "SEO": 100,
+        "Reliability": 28,
+        "Security": 100
+      },
+      "fixes": 2,
+      "noViewport": false,
+      "trackers": 1,
+      "injection": 0,
+      "attacks": 0
+    },
+    {
+      "name": "СТО Астана",
+      "category": "car service",
+      "url": "https://sto-astana.kz/",
+      "verified": true,
+      "source": "WebSearch: СТО Астана ремонт автомобилей официальный сайт автосервиса",
+      "before": 96,
+      "after": 97,
+      "scoresBefore": {
+        "Accessibility": 100,
+        "Mobile": 90,
+        "Performance": 84,
+        "SEO": 100,
+        "Reliability": 100,
+        "Security": 100
+      },
+      "scoresAfter": {
+        "Accessibility": 100,
+        "Mobile": 100,
+        "Performance": 80,
+        "SEO": 100,
+        "Reliability": 100,
+        "Security": 100
+      },
+      "fixes": 1,
+      "noViewport": false,
+      "trackers": 0,
+      "injection": 0,
+      "attacks": 0
+    },
+    {
+      "name": "Flower Astana",
+      "category": "flower shop",
+      "url": "https://flower-astana.kz/",
+      "verified": true,
+      "source": "WebSearch: цветочный магазин Астана доставка букетов сайт",
+      "before": 74,
+      "after": 75,
+      "scoresBefore": {
+        "Accessibility": 0,
+        "Mobile": 80,
+        "Performance": 81,
+        "SEO": 100,
+        "Reliability": 82,
+        "Security": 100
+      },
+      "scoresAfter": {
+        "Accessibility": 0,
+        "Mobile": 100,
+        "Performance": 68,
+        "SEO": 100,
+        "Reliability": 82,
+        "Security": 100
+      },
+      "fixes": 3,
+      "noViewport": false,
+      "trackers": 6,
+      "injection": 0,
+      "attacks": 0
+    },
+    {
+      "name": "NurMebel",
+      "category": "furniture",
+      "url": "https://nurmebel.kz/",
+      "verified": true,
+      "source": "WebSearch: мебель на заказ Астана сайт кухни шкафы",
+      "before": 76,
+      "after": 76,
+      "scoresBefore": {
+        "Accessibility": 51,
+        "Mobile": 87,
+        "Performance": 30,
+        "SEO": 100,
+        "Reliability": 88,
+        "Security": 100
+      },
+      "scoresAfter": {
+        "Accessibility": 51,
+        "Mobile": 100,
+        "Performance": 30,
+        "SEO": 100,
+        "Reliability": 76,
+        "Security": 100
+      },
+      "fixes": 2,
+      "noViewport": false,
+      "trackers": 4,
+      "injection": 0,
+      "attacks": 0
+    },
+    {
+      "name": "Astana Mebel",
+      "category": "furniture",
+      "url": "https://astana-mebel.kz/",
+      "verified": true,
+      "source": "WebSearch: мебель на заказ Астана сайт кухни шкафы",
+      "before": 84,
+      "after": 84,
+      "scoresBefore": {
+        "Accessibility": 80,
+        "Mobile": 61,
+        "Performance": 61,
+        "SEO": 100,
+        "Reliability": 100,
+        "Security": 100
+      },
+      "scoresAfter": {
+        "Accessibility": 100,
+        "Mobile": 100,
+        "Performance": 66,
+        "SEO": 100,
+        "Reliability": 40,
+        "Security": 100
+      },
+      "fixes": 3,
+      "noViewport": false,
+      "trackers": 0,
+      "injection": 0,
+      "attacks": 0
+    },
+    {
+      "name": "Champion Fitness",
+      "category": "gym",
+      "url": "https://championfitness.kz/",
+      "verified": true,
+      "source": "WebSearch: фитнес клуб Астана абонемент цены сайт",
+      "error": "could not load"
+    },
+    {
+      "name": "Kinderly",
+      "category": "kindergarten",
+      "url": "https://www.kinderly-astana.kz/",
+      "verified": true,
+      "source": "WebSearch: детский центр развития и частный садик Астана левый берег сайт",
+      "error": "could not load"
+    }
+  ]
+}
