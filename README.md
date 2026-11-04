@@ -100,7 +100,7 @@ The home page has an **Attack Lab** with five deliberately hostile pages. Each o
 
 ### On a Vultr VM (production)
 
-Easiest: paste `deploy/vultr-startup.sh` as a **Startup Script** when you create the VM (Ubuntu 24.04, 2 vCPU / 4 GB). It installs everything on first boot and opens a one-time page on port `8081` where you paste the Vultr Inference key; that page shuts itself down after saving. Or by hand:
+Easiest: paste `deploy/vultr-startup.sh` as a **Startup Script** when you create the VM (Ubuntu 24.04, 2 vCPU / 4 GB). It installs everything on first boot and opens a one-time page on port `8081` where you paste the Vultr Inference key; that page checks the key with Vultr and shuts itself down after saving. The VM then pulls this repo every 5 minutes and restarts itself when it changes, so a `git push` is a deploy. Or by hand:
 
 ```bash
 git clone https://github.com/Shinigami-tech/sitedoctor && cd sitedoctor

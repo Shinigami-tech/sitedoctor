@@ -8,7 +8,7 @@ import { randomBytes } from "node:crypto";
 import { runSandbox, CONTAINMENT_POLICY } from "./sandbox.mjs";
 import { diagnose, forModel, detectInjection, isKnownService } from "./score.mjs";
 import { plan, prescribe, summarise } from "./doctor.mjs";
-import { llmEnabled, modelName } from "./llm.mjs";
+import { llmEnabled, modelName, status as llmStatus } from "./llm.mjs";
 
 const PORT = +process.env.PORT || 8080;
 const DATA = process.env.SD_DATA || new URL("../data", import.meta.url).pathname;
@@ -41,7 +41,7 @@ const ATTACKS = [
   { id: "internal", title: "Break into the server", page: "internal.html", expect: "private-network", layer: "Network guard: localhost, private ranges, Docker API" },
   { id: "bomb", title: "Freeze the machine", page: "bomb.html", expect: "time-limit", layer: "CPU / RAM / PID caps + hard time limit" },
 ];
-app.get("/api/info", (req, res) => res.json({ llm: llmEnabled(), model: modelName(), policy: CONTAINMENT_POLICY, demoUrl: `${PUBLIC_URL}/demo/patient.html`,
+app.get("/api/info", (req, res) => res.json({ llm: llmEnabled(), model: modelName(), llmStatus, policy: CONTAINMENT_POLICY, demoUrl: `${PUBLIC_URL}/demo/patient.html`,
   attacks: ATTACKS.map((a) => ({ ...a, url: `${PUBLIC_URL}/demo/attacks/${a.page}` })) }));
 
 app.get("/api/benchmark", (req, res) => {

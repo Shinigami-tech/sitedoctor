@@ -1,6 +1,6 @@
 // The "doctor": turns findings into a prescription the sandbox can apply and verify.
 // Uses Vultr Serverless Inference; falls back to a rule-based prescription when no key is configured.
-import { chat, parseJson, llmEnabled } from "./llm.mjs";
+import { chat, parseJson, llmEnabled, modelName } from "./llm.mjs";
 
 const TOOLS = `Available tools (call with args array):
 - viewport()                      add a mobile viewport meta tag
@@ -33,7 +33,7 @@ export async function plan(url) {
     const out = await chat([
       { role: "system", content: "You plan website repair jobs. Reply with JSON only: {\"steps\":[\"...\"]} with 4-5 short imperative steps specific to the URL." },
       { role: "user", content: `Plan a repair job for ${url}. Steps must include: sandboxed audit, prescription, sandboxed verification.` },
-    ], { maxTokens: 300 });
+    ], { maxTokens: 2000, json: true });
     const j = parseJson(out);
     if (Array.isArray(j.steps) && j.steps.length >= 3) return { steps: j.steps.slice(0, 6), by: "llm" };
   } catch {}
@@ -48,8 +48,14 @@ export async function prescribe(audit, previous) {
         { role: "user", content: "Audit:\n" + JSON.stringify(audit) },
       ];
       if (previous) msgs.push({ role: "user", content: `Your last prescription did not fully work. Result: ${previous}. Fix it and reply with the full corrected JSON.` });
-      const rx = normalise(parseJson(await chat(msgs)));
-      if (rx.actions.length) return { ...rx, by: "llm" };
+      const rx = normalise(parseJson(await chat(msgs, { json: true })));
+      if (rx.actions.length) {
+        // The model leads (its wording, args and CSS win), and any safe fix it missed is added from the rules
+        // safety net, so an AI prescription is never weaker than the deterministic one.
+        const base = rulesPrescription(audit), have = new Set(rx.actions.map((a) => a.tool));
+        const added = base.actions.filter((a) => !have.has(a.tool));
+        return { ...rx, actions: [...rx.actions, ...added], needsHuman: [...new Set([...rx.needsHuman, ...base.needsHuman])].slice(0, 8), by: "llm", model: modelName(), addedBySafetyNet: added.length };
+      }
     } catch (e) {
       return { ...rulesPrescription(audit), by: "rules", llmError: e.message };
     }
@@ -92,6 +98,6 @@ export async function summarise(before, after, rx) {
     return (await chat([
       { role: "system", content: "Write a 2-sentence plain-English summary for a small business owner. No markdown." },
       { role: "user", content: JSON.stringify({ before: before.scores, after: after.scores, fixes: rx.actions.map((a) => a.tool), needsHuman: rx.needsHuman }) },
-    ], { maxTokens: 160 })).replace(/<think>[\s\S]*?<\/think>/g, "").trim() || fallback;
+    ], { maxTokens: 1500 })).replace(/<think>[\s\S]*?<\/think>/g, "").trim() || fallback;
   } catch { return fallback; }
 }

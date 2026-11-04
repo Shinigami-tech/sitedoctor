@@ -44,4 +44,37 @@ WantedBy=multi-user.target
 UNIT
 command -v ufw >/dev/null && ufw allow 8081/tcp || true
 systemctl daemon-reload && systemctl enable --now sd-keyform
+
+# Auto-update: every 5 minutes pull the public repo; if it changed, reinstall deps, rebuild the sandbox
+# image when sandbox/ changed, and restart. The .env with the key is untracked, so it is never touched.
+cat > /opt/sd-update.sh <<'SH'
+#!/bin/bash
+cd /opt/sitedoctor || exit 0
+old=$(git rev-parse HEAD)
+git fetch -q origin && git reset -q --hard origin/HEAD || exit 0
+new=$(git rev-parse HEAD)
+[ "$old" = "$new" ] && exit 0
+git diff --name-only "$old" "$new" | grep -q '^sandbox/' && docker build -q -t sitedoctor-sandbox sandbox
+git diff --name-only "$old" "$new" | grep -q '^package' && (npm ci --omit=dev || npm install --omit=dev)
+systemctl restart sitedoctor
+echo "updated $old -> $new"
+SH
+chmod +x /opt/sd-update.sh
+cat > /etc/systemd/system/sd-update.service <<'UNIT'
+[Unit]
+Description=SiteDoctor auto-update from GitHub
+[Service]
+Type=oneshot
+ExecStart=/opt/sd-update.sh
+UNIT
+cat > /etc/systemd/system/sd-update.timer <<'UNIT'
+[Unit]
+Description=SiteDoctor auto-update every 5 minutes
+[Timer]
+OnBootSec=3min
+OnUnitActiveSec=5min
+[Install]
+WantedBy=timers.target
+UNIT
+systemctl daemon-reload && systemctl enable --now sd-update.timer
 echo SETUP_DONE
