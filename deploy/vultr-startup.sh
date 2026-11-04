@@ -12,14 +12,18 @@ cd /opt/sitedoctor && bash deploy/setup-vultr.sh
 cat > /opt/sd-keyform.mjs <<'JS'
 import http from "node:http"; import fs from "node:fs"; import { execSync } from "node:child_process";
 const ENV = "/opt/sitedoctor/.env";
-const page = (msg = "") => `<!doctype html><meta name=viewport content="width=device-width"><body style="font:16px system-ui;max-width:520px;margin:60px auto">
-<h2>SiteDoctor · AI key</h2><p>Paste your Vultr Serverless Inference API key. This page closes itself after saving.</p>
+const page = (msg = "") => `<!doctype html><meta charset=utf-8><meta name=viewport content="width=device-width"><body style="font:16px system-ui;max-width:520px;margin:60px auto">
+<h2>SiteDoctor · AI key</h2><p>Paste the API key from <b>Serverless Inference → your subscription → API Key</b> (not the account API key). It is checked with Vultr before saving; this page closes itself after a successful save.</p>
 <form method=post><input name=key type=password style="width:100%;padding:10px" required><p><input name=model placeholder="model (optional)" style="width:100%;padding:10px"></p><button style="padding:10px 18px">Save</button></form><p>${msg}</p>`;
 http.createServer((req, res) => {
   if (req.method !== "POST") { res.writeHead(200, { "content-type": "text/html" }); return res.end(page()); }
-  let b = ""; req.on("data", (c) => (b += c)); req.on("end", () => {
+  let b = ""; req.on("data", (c) => (b += c)); req.on("end", async () => {
     const p = new URLSearchParams(b); const key = (p.get("key") || "").trim(); const model = (p.get("model") || "").trim();
     if (!/^[A-Za-z0-9_\-\.]{16,}$/.test(key)) { res.writeHead(400, { "content-type": "text/html" }); return res.end(page("That doesn't look like a key.")); }
+    let ok = false;
+    // /models is public, so probe an authenticated endpoint; a bogus model name costs nothing and still reveals 401/403 for a bad key
+    try { const r = await fetch("https://api.vultrinference.com/v1/chat/completions", { method: "POST", headers: { Authorization: "Bearer " + key, "Content-Type": "application/json" }, body: JSON.stringify({ model: "sitedoctor-key-check", messages: [{ role: "user", content: "ping" }], max_tokens: 1 }) }); ok = r.status !== 401 && r.status !== 403; } catch {}
+    if (!ok) { res.writeHead(400, { "content-type": "text/html" }); return res.end(page("Vultr rejected this key. Copy the key from Serverless Inference → your subscription → API Key and try again.")); }
     let env = fs.readFileSync(ENV, "utf8").replace(/^VULTR_INFERENCE_KEY=.*$/m, "VULTR_INFERENCE_KEY=" + key);
     if (model) env = env.replace(/^VULTR_MODEL=.*$/m, "VULTR_MODEL=" + model);
     fs.writeFileSync(ENV, env, { mode: 0o600 });
